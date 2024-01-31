@@ -1,1 +1,1 @@
-"# java-coding-excercises"  
+"# java-coding-exercises"  
