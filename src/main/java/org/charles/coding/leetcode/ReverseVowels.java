@@ -25,9 +25,8 @@ public class ReverseVowels {
                 j--;
             if (vowels.contains(charAtI)
                     && vowels.contains(charAtJ)){
-                char temp = arr[i];
-                arr[i++] = arr[j];
-                arr[j--] = temp;
+                arr[i++] = charAtJ;
+                arr[j--] = charAtI;
             }
         }
 
