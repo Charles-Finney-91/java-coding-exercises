@@ -1,4 +1,4 @@
-package org.charles.coding.exercises;
+package org.charles.coding.lambdaex;
 
 import java.util.List;
 
