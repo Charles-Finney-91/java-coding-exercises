@@ -21,7 +21,8 @@ public class ListToMap {
     }
 
     private static HashMap<String, String> listToMap(List<Person> list) {
-        return list.stream()
-                .collect(Collectors.toMap(Person::getFirstName, Person::getLastName, (f, l) -> l, LinkedHashMap::new));
+        return list
+                .stream()
+                .collect(Collectors.toMap(Person::getFirstName, Person::getLastName, (l1, l2) -> l2, LinkedHashMap::new));
     }
 }

@@ -1,5 +1,6 @@
 package org.charles.coding.lambdaex;
 
+import java.util.Comparator;
 import java.util.List;
 
 public class SortBySumOfDigits {
@@ -7,7 +8,7 @@ public class SortBySumOfDigits {
         List<Integer> list = List.of(1110,111,110,11,100,10,1);
 
         list.stream()
-                .sorted((a, b) -> getSumOfDigits(a) > getSumOfDigits(b) ? 0 : -1)
+                .sorted(Comparator.comparing(SortBySumOfDigits::getSumOfDigits).thenComparing((o1, o2) -> o1 - o2))
                 .forEach(System.out::println);
 
     }

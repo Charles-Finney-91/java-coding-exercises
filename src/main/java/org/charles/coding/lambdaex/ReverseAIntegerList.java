@@ -1,6 +1,7 @@
 package org.charles.coding.lambdaex;
 
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -12,5 +13,8 @@ public class ReverseAIntegerList {
             Collections.reverse(l);
             return l;
         })).forEach(System.out::println);
+
+        // This sorts not reverses
+//        list.stream().distinct().sorted(Comparator.reverseOrder()).forEach(System.out::println);
     }
 }

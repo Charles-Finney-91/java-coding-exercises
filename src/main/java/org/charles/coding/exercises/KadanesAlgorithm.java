@@ -16,6 +16,8 @@ public class KadanesAlgorithm {
          * it means the previous summed data will undermine the current number going forward.
          * So we will neglect the previous sum data and move forward from the current number.
          * Thus finding the largest sum.
+         *
+         * currMax = Math.max(currMax+array[i], array[i])
          */
         for (int i = 0; i < array.length; i++) {
             int temp = array[i] + currMax;

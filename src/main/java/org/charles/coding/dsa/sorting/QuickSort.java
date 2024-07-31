@@ -1,18 +1,13 @@
 package org.charles.coding.dsa.sorting;
 
+import org.charles.coding.utils.RandomIntegerArrayGenerator;
+
 import java.util.Arrays;
-import java.util.Random;
 
 public class QuickSort {
     public static void main(String[] args) {
-        Random rand = new Random();
-        int n = 10;
-        int[] array = new int[n];
-        for (int i = 0; i < array.length; i++) {
-            array[i] = rand.nextInt(100);
-        }
+        int[] array = RandomIntegerArrayGenerator.generateRandomArray(10);
         System.out.println(Arrays.toString(array));
-
         quicksort(array, 0, array.length-1);
         System.out.println(Arrays.toString(array));
     }

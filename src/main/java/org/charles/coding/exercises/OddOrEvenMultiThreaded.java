@@ -12,22 +12,30 @@ public class OddOrEvenMultiThreaded {
 
         IntStream.rangeClosed(1, 10).forEach(num -> {
             CompletableFuture<Integer> odd = CompletableFuture.completedFuture(num);
-            odd.thenApplyAsync(i -> {
-                if (i%2 != 0)
-                    System.out.printf("i=%s, [OddThread]%n", i);
-                return num;
-            }, executorService);
+            odd.thenApplyAsync(i -> printOddNumbers(num, i), executorService);
             odd.join();
 
             CompletableFuture<Integer> even = CompletableFuture.completedFuture(num);
-            even.thenApplyAsync(i -> {
-                if (i%2 == 0)
-                    System.out.printf("i=%s, [EvenThread]%n", i);
-                return num;
-            }, executorService);
+            even.thenApplyAsync(i ->  printEvenNumbers(num, i), executorService);
             even.join();
         });
 
         executorService.shutdown();
+    }
+
+    private static int printEvenNumbers(int num, Integer i) {
+        if (isEven(i))
+            System.out.printf("i=%s, [EvenThread]%n", i);
+        return num;
+    }
+
+    private static boolean isEven(Integer i) {
+        return i % 2 == 0;
+    }
+
+    private static int printOddNumbers(int num, Integer i) {
+        if (!isEven(i))
+            System.out.printf("i=%s, [OddThread]%n", i);
+        return num;
     }
 }
